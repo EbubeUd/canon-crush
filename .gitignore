@@ -33,7 +33,7 @@ Library/
 Logs/
 obj/
 Packages/
-ProjectSettings/
+#ProjectSettings/
 Temp/
 .vs/
 *.meta
