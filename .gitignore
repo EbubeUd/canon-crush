@@ -22,7 +22,6 @@ Assets/Sprites/Bot_Sprite.png.meta
 Assets/Sprites/GameObjects.meta
 Assets/Sprites/UI.meta
 Assets/Sprites.meta
-Box-Match.sln
 Assets/Scripts/Controllers.meta
 Assets/Scripts/Management.meta
 Assets/Scripts/Models.meta
@@ -39,3 +38,4 @@ Temp/
 .vs/
 *.meta
 *.csproj
+*.sln
