@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1499764762}
+      - m_Target: {fileID: 1499764763}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -681,6 +681,7 @@ GameObject:
   - component: {fileID: 1499764760}
   - component: {fileID: 1499764759}
   - component: {fileID: 1499764762}
+  - component: {fileID: 1499764763}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -763,6 +764,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df176b7e8a65faf4a80923620d98793e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1499764763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499764758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5006756e6d503ea44a8772fa8bd9c9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayButton: {fileID: 0}
