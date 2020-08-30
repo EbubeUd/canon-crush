@@ -60,36 +60,29 @@ namespace Assets.Scripts.GameObjects.Boxes
 
         public void SetUpVisuals()
         {
-            SpriteManager _spriteManager = new SpriteManager();
             switch (parentHolder.BoxType)
             {
                 // Rendering red color
                 case BoxType.A:
-                    _spriteManager.GetSprite(BoxType.A);
-                    spriteRenderer.color = new Color(255, 0, 0);
+                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.A);
                     break;
                 //Rendering blue color
                 case BoxType.B:
-                    _spriteManager.GetSprite(BoxType.B);
-                    spriteRenderer.color = new Color(0, 0, 255);
+                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.B);
                     break;
                 // Rendering yellow color
                 case BoxType.C:
-                    _spriteManager.GetSprite(BoxType.C);
-                    spriteRenderer.color = new Color(255, 255, 0);
+                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.C);
                     break;
                 // Rendering green color
                 case BoxType.D:
-                    _spriteManager.GetSprite(BoxType.D);
-                    spriteRenderer.color = new Color(0, 255, 0);
+                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.D);
                     break;
                 case BoxType.Hs:
-                    _spriteManager.GetSprite(BoxType.Hs);
-                    spriteRenderer.color = Color.white;
+                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.Hs);
                     break;
                 case BoxType.R:
-                    _spriteManager.GetSprite(BoxType.R);
-                    spriteRenderer.color = Color.black;
+                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.R);
                     break;
 
             }
