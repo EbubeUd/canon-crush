@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Management
 {
-    public class SpriteManager
+    public class SpriteManager : MonoBehaviour
     {
         public static SpriteManager Instance;
         public List<Sprite> BoxSprites;
