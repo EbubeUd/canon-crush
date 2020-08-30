@@ -4,6 +4,7 @@ using Assets.Scripts.Enums;
 using UnityEngine;
 using Unity;
 using Assets.Scripts.Enums;
+using Assets.Scripts.Management;
 using Assets.Scripts.Logic;
 
 namespace Assets.Scripts.GameObjects.Boxes
@@ -14,7 +15,7 @@ namespace Assets.Scripts.GameObjects.Boxes
         BoxHolder parentHolder;
         public Sprite Sprite;
 
-       
+
         // Start is called before the first frame update
         void Start()
         {
@@ -42,7 +43,7 @@ namespace Assets.Scripts.GameObjects.Boxes
                     default:
                         DestroyBox();
                         break;
-                }    
+                }
             }
         }
 
@@ -59,35 +60,42 @@ namespace Assets.Scripts.GameObjects.Boxes
 
         public void SetUpVisuals()
         {
+            SpriteManager _spriteManager = new SpriteManager();
             switch (parentHolder.BoxType)
             {
                 // Rendering red color
                 case BoxType.A:
+                    _spriteManager.GetSprite(BoxType.A);
                     spriteRenderer.color = new Color(255, 0, 0);
                     break;
                 //Rendering blue color
                 case BoxType.B:
+                    _spriteManager.GetSprite(BoxType.B);
                     spriteRenderer.color = new Color(0, 0, 255);
                     break;
                 // Rendering yellow color
                 case BoxType.C:
+                    _spriteManager.GetSprite(BoxType.C);
                     spriteRenderer.color = new Color(255, 255, 0);
                     break;
                 // Rendering green color
                 case BoxType.D:
+                    _spriteManager.GetSprite(BoxType.D);
                     spriteRenderer.color = new Color(0, 255, 0);
                     break;
                 case BoxType.Hs:
+                    _spriteManager.GetSprite(BoxType.Hs);
                     spriteRenderer.color = Color.white;
                     break;
                 case BoxType.R:
+                    _spriteManager.GetSprite(BoxType.R);
                     spriteRenderer.color = Color.black;
                     break;
 
             }
         }
-     
-    
+
+
     }
 
 }
