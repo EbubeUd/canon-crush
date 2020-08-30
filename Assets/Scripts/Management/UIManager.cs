@@ -13,6 +13,11 @@ namespace Assets.Scripts.Management
     {
         public Button PlayButton;
 
+        private void Start()
+        {
+            PlayButton.onClick.AddListener(delegate { Play(); });
+        }
+
         // Renders the sample screen
         public void Play()
         {

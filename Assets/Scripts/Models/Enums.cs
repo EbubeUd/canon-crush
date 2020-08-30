@@ -11,7 +11,9 @@ namespace Assets.Scripts.Enums
         A,
         B,
         C,
-        D
+        D,
+        Hs,
+        R
     }
 
     public enum ColumnType
