@@ -19,12 +19,17 @@ public class Gun : MonoBehaviour
     // Velocity at which this gun launches its bullets
     private Vector2 LaunchVelocity;
 
+    public int BulletsLeft;
+
+    Animator animator;
 
     // Called before the first frame update
     private void Start()
     {
         LaunchVelocity = new Vector2(0, 25);
         SpawnLaunchableBullet();
+        BulletsLeft = 20;
+        animator = GetComponent<Animator>();
     }
     
 
@@ -56,14 +61,30 @@ public class Gun : MonoBehaviour
     // Fires this gun
     public void Fire()
     {
+        
+        if (BulletsLeft <= 0) return;
+        Debug.Log("Fired");
         if (LaunchableBullet != null) {
             LaunchBullet();
             Invoke("SpawnLaunchableBullet", 0.5f);
-
+            BulletsLeft--;
             if (DelegateHandler.GunFired != null) {
                 DelegateHandler.GunFired.Invoke();
             }
         }
+        if (BulletsLeft == 0) DisableGun();
+    }
+
+
+    void DisableGun()
+    {
+        animator.SetBool("IsEnabled", false);
+    }
+
+    void EnableGun(int numberOfBullets)
+    {
+        BulletsLeft = numberOfBullets;
+        animator.SetBool("IsEnabled", true);
     }
 
 

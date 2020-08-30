@@ -1,21 +1,11 @@
-Assets/Amination/
-Assets/Amination.meta
-Assets/Amination/mainc1.anim.meta
-Assets/Amination/player.controller.meta
-Assets/Amination/run.anim.meta
-Assets/Audio/
-Assets/Audio.meta
+#Assets/Amination/
+#Assets/Audio/
 Assets/Editor Default Resources/
-Assets/Editor Default Resources.meta
 Assets/Resources/
-Assets/Resources.meta
 #Assets/Scenes/
-Assets/Scenes/ControlsTestScene.unity.meta
 Assets/Scenes/ControlsTestScene.unity
-Assets/Scenes/game.unity.meta
-Assets/Scenes/game.unity
-Assets/Scenes/SampleScene.unity.meta
 #Assets/Scenes/SampleScene.unity
+<<<<<<< HEAD
 Assets/Scenes.meta
 #Assets/Sprites/
 Assets/Sprites/Bot_Sprite.png.meta
@@ -29,6 +19,9 @@ Assets/Scripts/Models/Enum.cs.meta
 Assets/Scripts/Obstacles.meta
 Assets/Scripts/PlayerController.cs.meta
 Assets/Scripts.meta
+=======
+#Assets/Sprites/
+>>>>>>> 2ba8e052e619ba87b6c3947f54e4607ed0eb5d4d
 Library/
 Logs/
 obj/

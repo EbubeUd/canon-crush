@@ -20,6 +20,7 @@ namespace Assets.Scripts.GameObjects.Boxes
         private void Start()
         {
             SetupFallingObject();
+            DelegateHandler.BoxDestroyed += OnBoxDestroyed;
         }
 
 
@@ -32,6 +33,24 @@ namespace Assets.Scripts.GameObjects.Boxes
             Speed = 5;
             UseConstantDirection = true;
             SetRigidBody(GetComponent<Rigidbody2D>());
+        }
+
+        private void OnBoxDestroyed(ColumnType column, BoxType box)
+        {
+            Speed = 5;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("BoxHolder"))
+            {
+                Speed = 0;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            DelegateHandler.BoxDestroyed -= OnBoxDestroyed;
         }
     }
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

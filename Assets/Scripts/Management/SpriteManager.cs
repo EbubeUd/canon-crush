@@ -12,6 +12,7 @@ namespace Assets.Scripts.Management
     {
         public static SpriteManager Instance;
         public List<Sprite> BoxSprites;
+       
 
         void Awake()
         {
