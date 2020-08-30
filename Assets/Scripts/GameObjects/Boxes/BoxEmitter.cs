@@ -20,7 +20,7 @@ namespace Assets.Scripts.GameObjects.Boxes
             queuedSpawnCount = 0;
             DelegateHandler.BoxDestroyed += OnBoxDestroyed;
             Invoke("SpawnInitialBoxes", 1);
-            InvokeRepeating("SpawnAdditionalBoxes", 6, 0.5f);
+            InvokeRepeating("SpawnAdditionalBoxes", 2, 0.5f);
         }
 
 
