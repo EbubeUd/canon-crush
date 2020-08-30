@@ -44,5 +44,16 @@ namespace Assets.Scripts.Management
         {
             levelRequirements = _levelRequirements;
         }
+
+        public void SaveScore()
+        {
+            var currentHighScore = PlayerPrefs.GetInt("HighScore", 0);
+            if (currentHighScore > Score)
+                return;
+            else
+                PlayerPrefs.GetInt("HighScore", Score);
+
+            DelegateHandler.HighScoreReached(Score);
+        }
     }
 }

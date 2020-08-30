@@ -12,6 +12,8 @@ public class DelegateHandler : MonoBehaviour
     // Declaration of the delegate that is meant to be invoked whenever a gun is fired
     public delegate void OnGunFired();
 
+    public delegate void OnHighScoreReached(int Score);
+
     // Declaration of the delegate that is meant to be invoked whenever a box is destroyed
     public delegate void OnBoxDestroyed(ColumnType columnType, BoxType boxType);
 
@@ -22,5 +24,6 @@ public class DelegateHandler : MonoBehaviour
     // Instance of the OnBoxDestroyed delegate
     public static OnBoxDestroyed BoxDestroyed;
 
+    public static OnHighScoreReached HighScoreReached;
 
 }
