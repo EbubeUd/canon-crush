@@ -12,6 +12,7 @@ namespace Assets.Scripts.GameObjects.Boxes
         public GameObject BoxPrefab;
         public ColumnType ColumnType;
         int queuedSpawnCount;
+        int powerupPriority = 10;
 
         // Start is called before the first frame update
         void Start()
@@ -53,11 +54,12 @@ namespace Assets.Scripts.GameObjects.Boxes
 
         void SpawnBox()
         {
+            powerupPriority--;
             GameObject boxHolderObject = Instantiate(BoxPrefab, transform.position, Quaternion.identity);
             BoxHolder boxHolder = boxHolderObject.GetComponent<BoxHolder>();
             boxHolder.ColumnType = ColumnType;
-            boxHolder.BoxType = (BoxType)GameManager.Instance.Rand.Next(0, 3);
-
+            boxHolder.BoxType = powerupPriority>0 ? (BoxType)GameManager.Instance.Rand.Next(0, 4) : (BoxType)GameManager.Instance.Rand.Next(4, 6);
+            if (powerupPriority <= 0) powerupPriority = 10;
         }
 
 
