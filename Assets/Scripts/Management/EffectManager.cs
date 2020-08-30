@@ -8,7 +8,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Assets.Scripts.Management
 {
-    public class EffectManager
+    public class EffectManager : MonoBehaviour
     {
         public static EffectManager Instance;
 
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Management
 
         public void SpawnExplosionEffect(Vector3 location)
         {
-            SpawnExplosionEffect(location);
+            Instantiate(ExplosionEffect, location, Quaternion.identity);
         }
     }
 }
