@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /*
@@ -8,6 +9,7 @@ using UnityEngine;
  */
 public class Gun : MonoBehaviour
 {
+    public Text BulletCountText;
     // Reference to the prefab that is used as a blueprint for spawning bullets
     public Rigidbody2D PrefabOfBullet;
 
@@ -26,6 +28,8 @@ public class Gun : MonoBehaviour
     // Called before the first frame update
     private void Start()
     {
+        BulletCountText.text = BulletsLeft.ToString();
+
         LaunchVelocity = new Vector2(0, 25);
         SpawnLaunchableBullet();
         BulletsLeft = 20;
@@ -68,6 +72,7 @@ public class Gun : MonoBehaviour
             LaunchBullet();
             Invoke("SpawnLaunchableBullet", 0.5f);
             BulletsLeft--;
+            BulletCountText.text = BulletsLeft.ToString();
             if (DelegateHandler.GunFired != null) {
                 DelegateHandler.GunFired.Invoke();
             }
