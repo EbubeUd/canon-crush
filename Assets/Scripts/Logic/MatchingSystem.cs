@@ -50,7 +50,7 @@ namespace Assets.Scripts.Logic
 
                 if (isBeingModified) return;
                 bool matchFound = false;
-                Debug.Log("Detecting Match...");
+
 
                 //Detect on the vertical
                 for (int c = 0; c < 4; c++)
@@ -97,7 +97,7 @@ namespace Assets.Scripts.Logic
                     }
                     if (isMatch)
                     {
-                        DestroyBoxesInRow(r);
+                        AddBoxesInRowForDestruction(r);
                         matchFound = true;
                     }
                 }
@@ -114,7 +114,7 @@ namespace Assets.Scripts.Logic
 
 
 
-        void DestroyBoxesInRow(int row)
+        void AddBoxesInRowForDestruction(int row)
         {
             isBeingModified = true;
             Debug.Log("Adding Objects in row for destruction");
@@ -147,6 +147,24 @@ namespace Assets.Scripts.Logic
             BoxesToDestroy.Clear();
             isBeingModified = false;
 
+        }
+
+        public void DestroyBoxesInColumn(int column)
+        {
+
+            BoxesToDestroy.AddRange(SpawnedBoxes[column]);
+            DestroyBoxes();
+            
+        }
+
+        public void DestroyBoxesInRow(int column, Box rowItem)
+        {
+            int row = SpawnedBoxes[column].FindIndex(item => item == rowItem);
+            for(int i = 0; i<4; i++)
+            {
+                BoxesToDestroy.Add(SpawnedBoxes[i][row]);
+            }
+            DestroyBoxes();
         }
     }
 }

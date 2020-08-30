@@ -31,7 +31,18 @@ namespace Assets.Scripts.GameObjects.Boxes
             if (collision.gameObject.CompareTag("Bullet"))
             {
                 Destroy(collision.gameObject);
-                DestroyBox();
+                switch (parentHolder.BoxType)
+                {
+                    case BoxType.Hs:
+                        MatchingSystem.Instance.DestroyBoxesInColumn((int)parentHolder.ColumnType);
+                        break;
+                    case BoxType.R:
+                        MatchingSystem.Instance.DestroyBoxesInRow((int)parentHolder.ColumnType, this);
+                        break;
+                    default:
+                        DestroyBox();
+                        break;
+                }    
             }
         }
 
@@ -66,6 +77,13 @@ namespace Assets.Scripts.GameObjects.Boxes
                 case BoxType.D:
                     spriteRenderer.color = new Color(0, 255, 0);
                     break;
+                case BoxType.Hs:
+                    spriteRenderer.color = Color.white;
+                    break;
+                case BoxType.R:
+                    spriteRenderer.color = Color.black;
+                    break;
+
             }
         }
      
