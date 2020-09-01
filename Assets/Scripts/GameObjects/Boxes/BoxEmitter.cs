@@ -35,7 +35,7 @@ namespace Assets.Scripts.GameObjects.Boxes
 
         void SpawnAdditionalBoxes()
         {
-            if (queuedSpawnCount == 0) return;
+            if (queuedSpawnCount == 0 || GameManager.Instance.IsGamePaused) return;
             int boxesToSpawn = queuedSpawnCount;
             for (int i = 0; i< boxesToSpawn; i++)
             {
@@ -55,10 +55,11 @@ namespace Assets.Scripts.GameObjects.Boxes
         void SpawnBox()
         {
             powerupPriority--;
+            DelegateHandler.BoxSpawned();
             GameObject boxHolderObject = Instantiate(BoxPrefab, transform.position, Quaternion.identity);
             BoxHolder boxHolder = boxHolderObject.GetComponent<BoxHolder>();
             boxHolder.ColumnType = ColumnType;
-            boxHolder.BoxType = powerupPriority>0 ? (BoxType)GameManager.Instance.Rand.Next(0, 4) : (BoxType)GameManager.Instance.Rand.Next(4, 6);
+            boxHolder.BoxType = powerupPriority>0 ? (BoxType)GameManager.Instance.Rand.Next(0, 4) : (BoxType)GameManager.Instance.Rand.Next(4, 5);
             if (powerupPriority <= 0) powerupPriority = 10;
         }
 

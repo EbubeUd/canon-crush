@@ -17,6 +17,17 @@ public class DelegateHandler : MonoBehaviour
     // Declaration of the delegate that is meant to be invoked whenever a box is destroyed
     public delegate void OnBoxDestroyed(ColumnType columnType, BoxType boxType);
 
+    // Declaration of the delegate that is meant to be invoked whenever a box is spawned
+    public delegate void OnBoxSpawned();
+
+    //Called when a Combo is achieved
+    public delegate void OnComboAchieved();
+
+    //Called when a match is attained 
+    public delegate void OnMatchAttained();
+
+    public delegate void OnGamePaused(bool status);
+
 
     // Instance of the OnGunFired delegate
     public static OnGunFired GunFired;
@@ -24,6 +35,16 @@ public class DelegateHandler : MonoBehaviour
     // Instance of the OnBoxDestroyed delegate
     public static OnBoxDestroyed BoxDestroyed;
 
+    public static OnBoxSpawned BoxSpawned;
+
+    public static OnComboAchieved ComboAchieved;
+
     public static OnHighScoreReached HighScoreReached;
+
+    public static OnMatchAttained MatchAttained;
+
+    public static OnGamePaused GamePaused;
+
+
 
 }

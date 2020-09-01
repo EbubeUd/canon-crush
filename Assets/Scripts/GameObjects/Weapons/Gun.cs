@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Enums;
+using Assets.Scripts.Management;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /*
@@ -21,7 +24,13 @@ public class Gun : MonoBehaviour
 
     public int BulletsLeft;
 
+   
+
     Animator animator;
+
+    public ColumnType Column;
+
+    public Text BulletsLeftText;
 
     // Called before the first frame update
     private void Start()
@@ -30,8 +39,21 @@ public class Gun : MonoBehaviour
         SpawnLaunchableBullet();
         BulletsLeft = 20;
         animator = GetComponent<Animator>();
+        DelegateHandler.BoxDestroyed += OnBoxDestroyed;
+        BulletsLeftText.text = BulletsLeft.ToString();
+
     }
-    
+
+
+    void OnBoxDestroyed(ColumnType column, BoxType box)
+    {
+        if(box == BoxType.AntiRacistAid && Column == column)
+        {
+            //Add one more bullet to the gun
+            EnableGun(1);
+        }
+    }
+
 
     // Spawns a launchable bullet
     private void SpawnLaunchableBullet()
@@ -61,19 +83,21 @@ public class Gun : MonoBehaviour
     // Fires this gun
     public void Fire()
     {
-        
         if (BulletsLeft <= 0) return;
-        Debug.Log("Fired");
+
         if (LaunchableBullet != null) {
             LaunchBullet();
             Invoke("SpawnLaunchableBullet", 0.5f);
             BulletsLeft--;
+            BulletsLeftText.text = BulletsLeft.ToString();
             if (DelegateHandler.GunFired != null) {
                 DelegateHandler.GunFired.Invoke();
             }
         }
         if (BulletsLeft == 0) DisableGun();
     }
+
+
 
 
     void DisableGun()
@@ -83,7 +107,8 @@ public class Gun : MonoBehaviour
 
     void EnableGun(int numberOfBullets)
     {
-        BulletsLeft = numberOfBullets;
+        BulletsLeft += numberOfBullets;
+        BulletsLeftText.text = BulletsLeft.ToString();
         animator.SetBool("IsEnabled", true);
     }
 
@@ -96,5 +121,10 @@ public class Gun : MonoBehaviour
             LaunchableBullet.velocity = LaunchVelocity;
             LaunchableBullet = null;
         }
+    }
+
+    private void OnDisable()
+    {
+        DelegateHandler.BoxDestroyed -= OnBoxDestroyed;
     }
 }

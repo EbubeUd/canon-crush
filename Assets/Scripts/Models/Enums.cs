@@ -12,8 +12,7 @@ namespace Assets.Scripts.Enums
         B,
         C,
         D,
-        Hs,
-        R
+        AntiRacistAid
     }
 
     public enum ColumnType
@@ -22,5 +21,11 @@ namespace Assets.Scripts.Enums
         B,
         C,
         D
+    }
+
+    public enum SceneIds
+    {
+        HomeScene,
+        GameScene
     }
 }

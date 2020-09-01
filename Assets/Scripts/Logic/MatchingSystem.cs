@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Enums;
 using Assets.Scripts.GameObjects.Boxes;
+using Assets.Scripts.Management;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,7 @@ namespace Assets.Scripts.Logic
 
         void DetectMatchingBoxes()
         {
+            if (GameManager.Instance.IsGamePaused) return;
             try
             {
 
@@ -68,6 +70,19 @@ namespace Assets.Scripts.Logic
                     }
                     if (isMatch)
                     {
+                        DelegateHandler.MatchAttained();
+                        if(firstBoxType == BoxType.AntiRacistAid)
+                        {
+                            DelegateHandler.ComboAchieved();
+                            for(int i = 0; i< 4; i++)
+                            {
+                                DestroyBoxesInColumn(i);
+                            }
+                            Debug.Log("Destroying Boxes in col");
+                            return;
+                        }
+           
+                        Debug.Log("Did not work");
                         isBeingModified = true;
                         Debug.Log("Adding Objects in col for destruction");
                         BoxesToDestroy.AddRange(SpawnedBoxes[c]);
@@ -97,6 +112,18 @@ namespace Assets.Scripts.Logic
                     }
                     if (isMatch)
                     {
+                        DelegateHandler.MatchAttained();
+                        if (firstBoxType == BoxType.AntiRacistAid)
+                        {
+                            DelegateHandler.ComboAchieved();
+
+                            for (int i = 0; i < 4; i++)
+                            {
+                                DestroyBoxesInColumn(i);
+                            }
+                            Debug.Log("Destroying Boxes in col");
+                            return;
+                        }
                         AddBoxesInRowForDestruction(r);
                         matchFound = true;
                     }

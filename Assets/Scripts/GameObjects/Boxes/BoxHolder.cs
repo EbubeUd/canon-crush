@@ -21,6 +21,8 @@ namespace Assets.Scripts.GameObjects.Boxes
         {
             SetupFallingObject();
             DelegateHandler.BoxDestroyed += OnBoxDestroyed;
+            Invoke("ResetSpeed", 0.5f);
+            ConstantFall = true;
         }
 
 
@@ -30,22 +32,24 @@ namespace Assets.Scripts.GameObjects.Boxes
         /// </summary>
         void SetupFallingObject()
         {
-            Speed = 5;
+            Speed = 4;
             UseConstantDirection = true;
             SetRigidBody(GetComponent<Rigidbody2D>());
         }
 
         private void OnBoxDestroyed(ColumnType column, BoxType box)
         {
-            Speed = 5;
+
+        }
+
+        void ResetSpeed()
+        {
+            ConstantFall = false;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("BoxHolder"))
-            {
-                Speed = 0;
-            }
+   
         }
 
         private void OnDestroy()
