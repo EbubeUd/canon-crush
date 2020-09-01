@@ -16,6 +16,9 @@ namespace Assets.Scripts.GameObjects
         [HideInInspector]
         public float Speed;
 
+        [HideInInspector]
+        public bool ConstantFall;
+
         /// <summary>
         /// Determines if the object can move in multiple directions or not
         /// </summary>
@@ -49,7 +52,7 @@ namespace Assets.Scripts.GameObjects
 
         private void LateUpdate()
         {
-            if (rigidBody == null) return;
+            if (rigidBody == null || !ConstantFall) return;
             if (GameManager.Instance.IsGamePaused)
             {
                 rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;

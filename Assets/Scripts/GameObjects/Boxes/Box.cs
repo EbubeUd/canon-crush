@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Assets.Scripts.Enums;
 using UnityEngine;
 using Unity;
-using Assets.Scripts.Enums;
 using Assets.Scripts.Management;
 using Assets.Scripts.Logic;
 
@@ -34,11 +33,9 @@ namespace Assets.Scripts.GameObjects.Boxes
                 Destroy(collision.gameObject);
                 switch (parentHolder.BoxType)
                 {
-                    case BoxType.Hs:
+  
+                    case BoxType.AntiRacistAid:
                         MatchingSystem.Instance.DestroyBoxesInColumn((int)parentHolder.ColumnType);
-                        break;
-                    case BoxType.R:
-                        MatchingSystem.Instance.DestroyBoxesInRow((int)parentHolder.ColumnType, this);
                         break;
                     default:
                         DestroyBox();
@@ -78,11 +75,8 @@ namespace Assets.Scripts.GameObjects.Boxes
                 case BoxType.D:
                     spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.D);
                     break;
-                case BoxType.Hs:
-                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.Hs);
-                    break;
-                case BoxType.R:
-                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.R);
+                case BoxType.AntiRacistAid:
+                    spriteRenderer.sprite = SpriteManager.Instance.GetSprite(BoxType.AntiRacistAid);
                     break;
 
             }
