@@ -82,6 +82,11 @@ public class Gun : MonoBehaviour
     // Fires this gun
     public void Fire()
     {
+        if (GameManager.Instance.IsGamePaused)
+        {
+            return;
+        }
+
         if (BulletsLeft <= 0) return;
 
         if (LaunchableBullet != null) {
