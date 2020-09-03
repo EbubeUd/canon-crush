@@ -18,6 +18,7 @@ namespace Assets.Scripts.Management
         public Text BestScoreText;
         public Text MatchesText;
         public Text ComboText;
+        public Text CurrentScoreText;
         public Animator Overlay;
         public Animator ScorePanel;
 
@@ -95,6 +96,7 @@ namespace Assets.Scripts.Management
         void ShowScorePanel()
         {
             BestScoreText.text = $"Best Score: {PlayerPrefs.GetInt("HighScore").ToString()}";
+            CurrentScoreText.text = Score.ToString();
             Overlay.SetBool("IsVisible", true);
             ScorePanel.SetBool("IsVisible", true);
         }
