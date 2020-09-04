@@ -24,7 +24,6 @@ public class Gun : MonoBehaviour
 
     public int BulletsLeft;
 
-   
 
     Animator animator;
 
@@ -83,6 +82,11 @@ public class Gun : MonoBehaviour
     // Fires this gun
     public void Fire()
     {
+        if (GameManager.Instance.IsGamePaused)
+        {
+            return;
+        }
+
         if (BulletsLeft <= 0) return;
 
         if (LaunchableBullet != null) {
@@ -95,6 +99,7 @@ public class Gun : MonoBehaviour
             }
         }
         if (BulletsLeft == 0) DisableGun();
+
     }
 
 
@@ -127,4 +132,5 @@ public class Gun : MonoBehaviour
     {
         DelegateHandler.BoxDestroyed -= OnBoxDestroyed;
     }
+
 }
