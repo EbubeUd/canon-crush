@@ -5,6 +5,7 @@ using Assets.Scripts.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 namespace Assets.Scripts.Management
 {
     public class GameManager : MonoBehaviour
@@ -14,6 +15,7 @@ namespace Assets.Scripts.Management
         [HideInInspector]
         public bool IsGamePaused;
         public System.Random Rand;
+
 
         void Awake()
         {
@@ -25,20 +27,18 @@ namespace Assets.Scripts.Management
         }
 
 
-
-
-
-
         public void PauseGame(bool status)
         {
             IsGamePaused = status;
             DelegateHandler.GamePaused(status);
         }
 
+
         internal SceneIds GetCurrentScene()
         {
             return CurrentScene;
         }
+
 
         internal void GoToScene(SceneIds sceneId)
         {
@@ -52,7 +52,8 @@ namespace Assets.Scripts.Management
                     SceneManager.LoadScene("SampleScene");
                     break;
             }
+
+            if (IsGamePaused) PauseGame(false);
         }
     }
-
 }

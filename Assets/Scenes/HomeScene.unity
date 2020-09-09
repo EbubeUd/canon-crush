@@ -521,8 +521,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233419008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 147.11903, y: 164.81946, z: -621.3821}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 296830545}
@@ -531,8 +531,8 @@ Transform:
   - {fileID: 1509919650}
   - {fileID: 862145043}
   - {fileID: 2104477179}
-  m_Father: {fileID: 476885071}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &296830544
 GameObject:
@@ -972,9 +972,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1327948452}
-  - {fileID: 233419009}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &572022492
 GameObject:
@@ -1890,6 +1889,7 @@ GameObject:
   - component: {fileID: 1002166575}
   - component: {fileID: 1002166574}
   - component: {fileID: 1002166573}
+  - component: {fileID: 1002166576}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 1779069057}
-  sfxSlider: {fileID: 1926457636}
+  SFXSlider: {fileID: 1926457636}
   SettingsPanel: {fileID: 718288276}
   CloseButton: {fileID: 862320771}
   OverlayPanel: {fileID: 931278404}
@@ -1952,6 +1952,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1002166576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002166572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cba328f6088c354f9d5b491018b7642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoxDestructionClip: {fileID: 8300000, guid: 72fdd5d1e8a428b4bb69f3abeb850a03, type: 3}
+  BoxSpawnClip: {fileID: 8300000, guid: 93f3b7a3e0d5707419c6a7397abb5f72, type: 3}
+  FireClip: {fileID: 8300000, guid: 6eae5eb2d1d9558428b3be34e297155d, type: 3}
+  BoosterClip: {fileID: 8300000, guid: 8ad8bfe74b7a8b540888952d64808681, type: 3}
+  MusicAudioSource: {fileID: 2104477180}
+  AudioSources:
+  - {fileID: 296830546}
+  - {fileID: 1864235290}
+  - {fileID: 794723548}
+  - {fileID: 1509919651}
+  - {fileID: 862145044}
 --- !u!1 &1030538461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2707,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1327948452}
   - component: {fileID: 1327948455}
-  - component: {fileID: 1327948453}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -2706,29 +2728,6 @@ Transform:
   m_Father: {fileID: 476885071}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1327948453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327948451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cba328f6088c354f9d5b491018b7642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoxDestructionClip: {fileID: 8300000, guid: 72fdd5d1e8a428b4bb69f3abeb850a03, type: 3}
-  BoxSpawnClip: {fileID: 8300000, guid: 93f3b7a3e0d5707419c6a7397abb5f72, type: 3}
-  FireClip: {fileID: 8300000, guid: 6eae5eb2d1d9558428b3be34e297155d, type: 3}
-  BoosterClip: {fileID: 8300000, guid: 8ad8bfe74b7a8b540888952d64808681, type: 3}
-  AudioSources:
-  - {fileID: 296830546}
-  - {fileID: 1864235290}
-  - {fileID: 794723548}
-  - {fileID: 1509919651}
-  - {fileID: 862145044}
-  MusicAudioSource: {fileID: 2104477180}
 --- !u!114 &1327948455
 MonoBehaviour:
   m_ObjectHideFlags: 0

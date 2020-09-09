@@ -8,53 +8,53 @@ using Assets.Scripts.Management;
 
 public class AudioManager : MonoBehaviour
 {
-
+    public static AudioManager Instance;
     public AudioClip BoxDestructionClip;
     public AudioClip BoxSpawnClip;
     public AudioClip FireClip;
     public AudioClip BoosterClip;
-
-
-    public List<AudioSource> AudioSources =  new List<AudioSource>();
     public AudioSource MusicAudioSource;
+    public List<AudioSource> AudioSources =  new List<AudioSource>();
 
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Awake()
+    {
+        if (Instance == null)  Instance = this;
+    }
+
+
+    private void Start()
     {
         DelegateHandler.BoxDestroyed += BoxDestroyed;
         DelegateHandler.BoxSpawned += BoxSpawned;
         DelegateHandler.GunFired += GunFired;
         DelegateHandler.GamePaused += OnGamePaused;
 
-        UpdateVolumes();
         MusicAudioSource.Play();
     }
+    
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateVolumes(float musicVolume, float SFXVolume)
     {
-        UpdateVolumes();
-    }
+        MusicAudioSource.volume = musicVolume;
 
-    public void UpdateVolumes()
-    {
-        MusicAudioSource.volume = SettingsManager.Instance.GetMusicVolume();
         for (int i = 0; i < AudioSources.Count; i++)
         {
-            AudioSources[i].volume = SettingsManager.Instance.GetSFXVolume();
+            AudioSources[i].volume = SFXVolume;
         }
     }
+
 
     void BoxDestroyed(ColumnType columnType, BoxType boxType)
     {
         if (boxType == BoxType.AntiRacistAid)
         {
             BoosterDestroyed();
-            return;
         }
         else
         {
             AudioSource audioSource = AudioSources.FirstOrDefault(x => x.isPlaying == false);
+
             if (audioSource)
             {
                 audioSource.clip = BoxDestructionClip;
@@ -68,6 +68,7 @@ public class AudioManager : MonoBehaviour
     void BoosterDestroyed()
     {
         AudioSource audioSource = AudioSources.FirstOrDefault(x => x.isPlaying == false);
+
         if (audioSource)
         {
             audioSource.clip = BoosterClip;
@@ -75,9 +76,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     void GunFired()
     {
         AudioSource audioSource = AudioSources.FirstOrDefault(x => x.isPlaying == false);
+
         if (audioSource)
         {
             audioSource.clip = FireClip;
@@ -88,6 +91,7 @@ public class AudioManager : MonoBehaviour
     void BoxSpawned()
     {
         AudioSource audioSource = AudioSources.FirstOrDefault(x => x.isPlaying == false);
+
         if (audioSource)
         {
             audioSource.clip = BoxSpawnClip;
@@ -95,13 +99,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        DelegateHandler.BoxDestroyed -= BoxDestroyed;
-        DelegateHandler.BoxSpawned -= BoxSpawned;
-        DelegateHandler.GunFired -= GunFired;
-        DelegateHandler.GamePaused -= OnGamePaused;
-    }
 
     void OnGamePaused(bool status)
     {
@@ -115,9 +112,14 @@ public class AudioManager : MonoBehaviour
             for (int i = 0; i < AudioSources.Count; i++) AudioSources[i].Play();
             MusicAudioSource.Play();
         }
-
-
     }
+    
 
-
+    private void OnDestroy()
+    {
+        DelegateHandler.BoxDestroyed -= BoxDestroyed;
+        DelegateHandler.BoxSpawned -= BoxSpawned;
+        DelegateHandler.GunFired -= GunFired;
+        DelegateHandler.GamePaused -= OnGamePaused;
+    }
 }
