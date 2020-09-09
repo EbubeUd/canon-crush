@@ -3617,6 +3617,7 @@ MonoBehaviour:
   BestScoreText: {fileID: 1569837030}
   MatchesText: {fileID: 1052892927}
   ComboText: {fileID: 1501040396}
+  CurrentScoreText: {fileID: 898998783}
   Overlay: {fileID: 4809947844399750593}
   ScorePanel: {fileID: 1647060625}
   RetryButton: {fileID: 108312306}
