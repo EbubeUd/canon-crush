@@ -24,7 +24,6 @@ public class Gun : MonoBehaviour
 
     public int BulletsLeft;
 
-   
 
     Animator animator;
 
@@ -95,6 +94,7 @@ public class Gun : MonoBehaviour
             }
         }
         if (BulletsLeft == 0) DisableGun();
+
     }
 
 
@@ -127,4 +127,5 @@ public class Gun : MonoBehaviour
     {
         DelegateHandler.BoxDestroyed -= OnBoxDestroyed;
     }
+
 }
