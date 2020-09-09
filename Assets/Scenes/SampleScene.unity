@@ -394,7 +394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7b995c2aa15bdc845aa80dc0d7bfa85d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d87adc0606d9cb46a33ca5af1f72318, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -686,7 +686,7 @@ SpriteRenderer:
   m_Size: {x: 5.76, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &258831889
@@ -1381,7 +1381,7 @@ SpriteRenderer:
   m_Size: {x: 38.374237, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &734516306 stripped
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51dad5694be03264bbb41a54f19eab8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e23dddc64d8ccf3409cb8ca40d3eb15f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7b995c2aa15bdc845aa80dc0d7bfa85d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d87adc0606d9cb46a33ca5af1f72318, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2554,7 +2554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 516a35c86df4dbb41b2a0793568f7344, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9e85d068455db74ba120e6a78235657, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2863,7 +2863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 198a1080a926a9c429e9a497e64cf412, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 721609af845aa1d49b4013dd0b2c4e7d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3614,11 +3614,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxSprites:
-  - {fileID: 21300000, guid: 2e04e62f7afd4714b841c351cc9de8a7, type: 3}
-  - {fileID: 21300000, guid: 05c08f4b1da1d8940ab600008c60c6be, type: 3}
-  - {fileID: 21300000, guid: 7142aebbb07815f428816cba76e0b772, type: 3}
-  - {fileID: 21300000, guid: 0672fb73b453a4b4aa256a86f70833a8, type: 3}
-  - {fileID: 21300000, guid: effb0b1533c0b094181864b1a1ce4d65, type: 3}
+  - {fileID: 21300000, guid: 6221ec8c915bab74fafefffd2e7ad89f, type: 3}
+  - {fileID: 21300000, guid: 0471243ea366fce42aab02181f1cecdf, type: 3}
+  - {fileID: 21300000, guid: 2bf200b1182a47348bf682c633f6db33, type: 3}
+  - {fileID: 21300000, guid: 433e1b403786b8a4a9e350c429ad7dbe, type: 3}
+  - {fileID: 21300000, guid: d17208f2c72af494babace5b4c399e37, type: 3}
 --- !u!114 &2067974873
 MonoBehaviour:
   m_ObjectHideFlags: 0
