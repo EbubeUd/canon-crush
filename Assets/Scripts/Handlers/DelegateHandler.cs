@@ -28,6 +28,12 @@ public class DelegateHandler : MonoBehaviour
 
     public delegate void OnGamePaused(bool status);
 
+    public delegate void OnBeginGooglePlayLoginDelegate();
+
+    public delegate void OnGooglePlayLoginSuccessful();
+
+    public delegate void OnGooglePlayLoginFailed();
+
 
     // Instance of the OnGunFired delegate
     public static OnGunFired GunFired;
@@ -45,6 +51,10 @@ public class DelegateHandler : MonoBehaviour
 
     public static OnGamePaused GamePaused;
 
+    public static OnBeginGooglePlayLoginDelegate beginGooglePlayLoginDelegate;
 
+    public static OnGooglePlayLoginSuccessful googlePlayLoginSuccessful;
+
+    public static OnGooglePlayLoginFailed googlePlayLoginFailed;
 
 }
